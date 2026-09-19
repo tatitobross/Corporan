@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme { --color-teal-brand: #14b8b3; --color-teal-deep: #087c79; --color-ink: #071413; }
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-[#f8fbfa] text-slate-800 antialiased; font-family: Arial, Helvetica, sans-serif; }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .eyebrow { @apply mb-3 text-xs font-bold tracking-[.18em] text-teal-deep uppercase; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-teal-brand px-6 py-3 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:bg-white hover:shadow-lg; }
+  .btn-dark { @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-teal-deep; }
+  .nav-link { @apply text-sm font-semibold text-slate-600 transition hover:text-teal-deep; }
+  button[data-lang-toggle] { @apply cursor-pointer transition duration-200 hover:border-teal-brand hover:bg-teal-brand/10 hover:text-teal-deep; }
+  button[data-prev], button[data-next] { @apply cursor-pointer; }
+  button[data-copy-phone] { display: inline-flex; width: 2rem; height: 2rem; flex: 0 0 2rem; align-items: center; justify-content: center; overflow: hidden; }
+  button[data-copy-phone] svg { display: block; width: 1rem; height: 1rem; }
+  button[data-copy-phone] .sr-only { display: none; }
+  .service-card { @apply flex min-h-65 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-teal-brand hover:shadow-xl; }
+  .photo { @apply h-full w-full object-cover; }
+  footer .text-ink { color: white; }
+  .lang-en { display: none; }
+  body[data-lang="en"] .lang-es { display: none; }
+  body[data-lang="en"] .lang-en { display: inline; }
+  body[data-lang="en"] .lang-en.flex { display: flex; }
+  input, select, textarea { font-size: 16px; }
+
+  @media (max-width: 639px) {
+    body { overflow-x: hidden; }
+    .service-card { min-height: auto; }
+  }
+}
